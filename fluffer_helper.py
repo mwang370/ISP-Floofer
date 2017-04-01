@@ -19,7 +19,10 @@ def getLinks(serachTerm):
     return links
 
 def visitURL(url):
-    site = requests.get(url)
+    try:
+        site = requests.get(url)
+    except:
+        return
     print 'visiting: ' + url
     content = site.content
     soup = BeautifulSoup(content)
