@@ -19,7 +19,7 @@ def getLinks(word):
     return links
 
 def visitURL(url):
-    print url
+    print 'visiting: ' + url
     site = requests.get(url)
     content = site.content
     soup = BeautifulSoup(content)
