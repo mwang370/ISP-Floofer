@@ -8,5 +8,7 @@ while True:
         links = getLinks(searchTerm)
         link = links[randint(0, len(links) - 1)]
         visitURL(link)
+    except KeyboardInterrupt: 
+    	break
     except:
         pass
