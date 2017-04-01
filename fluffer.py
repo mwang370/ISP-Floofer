@@ -3,7 +3,9 @@ from random import randint
 
 while True:
     try:
-        links = getLinks(getSearchTerm(randint(1, 4)))
+        searchTerm = getSearchTerm(randint(1, 4))
+        print 'searching: ' + searchTerm
+        links = getLinks(searchTerm)
         link = links[randint(0, len(links) - 1)]
         visitURL(link)
     except:
