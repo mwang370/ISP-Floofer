@@ -19,8 +19,8 @@ def getLinks(serachTerm):
     return links
 
 def visitURL(url):
-    print 'visiting: ' + url
     site = requests.get(url)
+    print 'visiting: ' + url
     content = site.content
     soup = BeautifulSoup(content)
     links = soup.find_all('a', href=True)
