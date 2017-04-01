@@ -7,7 +7,13 @@ def getRandomWord():
     r = requests.get('http://www.setgetgo.com/randomword/get.php')
     return r.text
 
-def getLinks(serachTerm):
+def getSearchTerm(numWords):
+    searchTerm = ''
+    for index in range(numWords):
+        searchTerm = searchTerm + ' ' + getRandomWord()
+    return searchTerm.strip()
+
+def getLinks(searchTerm):
     headers = {'Ocp-Apim-Subscription-Key': 'a43582571a4946d0a3e7afb34d09807d'}
     params = {'q': searchTerm}
     r = requests.get('https://api.cognitive.microsoft.com/bing/v5.0/search?q=' + searchTerm + '&count=10', headers=headers, params=params)
