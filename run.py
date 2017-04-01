@@ -24,20 +24,14 @@ def goToURL(url):
 	content = site.content
 	soup = BeautifulSoup(content)
 	links = soup.find_all('a', href=True)
-	
 	if len(links) > 1:
 		tries = 1
 		link_url = links[randint(0, len(links)-1)]["href"]
-
 		while link_url.startswith("http") == False and tries < len(links):
 			link_url = links[randint(0, len(links)-1)]["href"]
 			tries += 1
-
-		time.sleep(15)
-		
+		time.sleep(randint(15,30))
 		try:
 			goToURL(link_url)
 		except:
 			return
-
-
