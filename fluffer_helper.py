@@ -18,7 +18,7 @@ def getLinks(word):
         links.append(result['displayUrl'])
     return links
 
-def goToURL(url):
+def visitURL(url):
 	print url
 	site = requests.get(url)
 	content = site.content
@@ -36,6 +36,6 @@ def goToURL(url):
             if randi == 0:
                 return
             else:
-			    goToURL(link_url)
+			    visitURL(link_url)
 		except:
 			return
