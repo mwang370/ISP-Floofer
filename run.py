@@ -26,12 +26,16 @@ def goToURL(url):
 	links = soup.find_all('a', href=True)
 	if len(links) > 1:
 		tries = 1
-		link_url = links[randint(0, len(links)-1)]["href"]
+		link_url = links[randint(0, len(links) - 1)]["href"]
 		while link_url.startswith("http") == False and tries < len(links):
-			link_url = links[randint(0, len(links)-1)]["href"]
+			link_url = links[randint(0, len(links) - 1)]["href"]
 			tries += 1
-		time.sleep(randint(15,30))
+		time.sleep(randint(15, 30))
 		try:
-			goToURL(link_url)
+            randi = randint(0, 3)
+            if randi == 0:
+                return
+            else:
+			    goToURL(link_url)
 		except:
 			return
