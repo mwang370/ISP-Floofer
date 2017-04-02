@@ -14,7 +14,7 @@ def getSearchTerm(numWords):
     return searchTerm.strip()
 
 def getLinks(searchTerm):
-    headers = {'Ocp-Apim-Subscription-Key': 'a43582571a4946d0a3e7afb34d09807d'}
+    headers = {'Ocp-Apim-Subscription-Key': '590188e973f14a9388649c11d27718bf'}
     params = {'q': searchTerm}
     r = requests.get('https://api.cognitive.microsoft.com/bing/v5.0/search?q=' + searchTerm + '&count=10', headers=headers, params=params)
     results = r.json()
